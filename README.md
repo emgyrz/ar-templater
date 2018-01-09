@@ -1,3 +1,3 @@
-### gulp-plugin-ar-trs
+## gulp-plugin-ar-trs
 
-# Gulp plugin for compile template (for AddReality)
+### Gulp plugin for compile template (for AddReality)
