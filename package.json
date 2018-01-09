@@ -1,0 +1,19 @@
+{
+  "name": "gulp-plugin-ar-trs",
+  "version": "0.0.1",
+  "description": "Gulp plugin for compile template (for AddReality)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mz",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:emgyrz/gulp-plugin-ar-trs.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "lodash.template": "^4.4.0",
+    "through2": "^2.0.3"
+  }
+}
