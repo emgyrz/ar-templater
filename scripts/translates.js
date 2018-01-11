@@ -44,43 +44,6 @@ function getTrs( langCode, key ) {
 
 
 
-function findTranslates( langDir, cb ) {
-  if ( finded ) return cb()
-
-  if ( !isStr( langDir ) ) {
-    return cb( plugErr( 'lang dir path is invalid' ) )
-  }
-
-  const langDirPath = path.normalize( path.format( { dir: langDir } ) )
-
-  const dirs = glob.sync( langDirPath + '*/' )
-
-  if ( dirs.length === 0 ) {
-    return cb( plugErr( 'cannot find translates in ' + langDir ) )
-  }
-
-  const fileExtRegexp = /\.js(on)?$/
-  dirs.forEach( oneLangDirPath => {
-    const langCode = path.basename( oneLangDirPath )
-
-    translates[ langCode ] = {}
-    langCodes.push( langCode )
-
-    glob.sync( oneLangDirPath + '*' )
-      .filter( fPath => fileExtRegexp.test( fPath ) )
-      .forEach( fPath => {
-        const fileName = path.basename( fPath ).replace( fileExtRegexp, '' )
-        translates[ langCode ][ fileName ] = require( path.join( process.cwd(), fPath ) )
-      } )
-
-  } )
-
-  finded = true
-
-  cb()
-}
-
-
 
 
 

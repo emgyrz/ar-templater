@@ -7,6 +7,12 @@ const config = require( './src/conf' )
 
 function start( configOrPathTo ) {
   config.read( configOrPathTo )
+  files.prepare()
+  translates.prepare()
+
+  files.compileAll()
+
+  files.writeFiles()
 
 }
 
@@ -16,7 +22,10 @@ function start( configOrPathTo ) {
 
 function build( configOrPathTo ) {
   config.read( configOrPathTo )
-
+  files.prepare()
+  translates.prepare()
+  files.compileAll()
+  files.writeFiles()
 }
 
 

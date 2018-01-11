@@ -2,7 +2,10 @@ const path = require( 'path' )
 const { isPlainObject: isObj, isString: isStr} = require( 'lodash' )
 const validate = require( './validate' )
 const utils = require( '../utils' )
+const defaults = require( './defaults' )
 
+
+let config
 
 
 function parse( objOrFilePath ) {
@@ -36,21 +39,20 @@ function parse( objOrFilePath ) {
 
 
 
-function setDefaults( obj ) {
-  return obj
+function read( objOrFilePath ) {
+  config = defaults.extend( validate( parse( objOrFilePath ) ) )
 }
 
 
 
-
-function read( objOrFilePath ) {
-  const config = setDefaults( validate( parse( objOrFilePath ) ) )
-
+function get( key ) {
+  return config[ key ]
 }
 
 
 module.exports = {
-  read
+  read,
+  get
 }
 
 

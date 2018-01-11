@@ -1,7 +1,7 @@
 
 
 function err( { msg } ) {
-  throw msg
+  throw new Error( msg )
 }
 
 module.exports = {
