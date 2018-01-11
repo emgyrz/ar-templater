@@ -1,7 +1,12 @@
-const files = require( './scripts/files' )
+
+const files = require( './src/files' )
+const translates = require( './src/translates')
+const config = require( './src/conf' )
+
 
 
 function start( configOrPathTo ) {
+  config.read( configOrPathTo )
 
 }
 
@@ -9,11 +14,13 @@ function start( configOrPathTo ) {
 
 
 
-function build() {
+function build( configOrPathTo ) {
+  config.read( configOrPathTo )
 
 }
 
 
+start( './demo/config' )
 
 
 module.exports = {

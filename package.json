@@ -15,14 +15,13 @@
   "dependencies": {
     "glob": "^7.1.2",
     "html-minifier": "^3.5.8",
-    "lodash.get": "^4.4.2",
-    "lodash.template": "^4.4.0",
+    "lodash": "^4.17.4",
     "node-watch": "^0.5.5",
     "plugin-error": "^0.1.2",
     "through2": "^2.0.3",
     "uglify-js": "^3.3.5"
   },
   "bin": {
-    "filesearch": "index_bin.js"
+    "ar-templater": "bin.js"
   }
 }
