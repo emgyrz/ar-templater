@@ -17,13 +17,11 @@ function start( configOrPathTo ) {
 
 
 function build( configOrPathTo ) {
-  console.time( 'BUILD' )
   config.read( configOrPathTo )
   files.prepare()
   translates.prepare()
   files.compileAll()
   files.writeFiles()
-  console.timeEnd( 'BUILD' )
 }
 
 

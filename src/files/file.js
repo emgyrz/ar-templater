@@ -101,7 +101,6 @@ class TplFile {
 
     const defCompile = () => {
 
-      // console.log('COMPILING', this.filePath)
       if ( this.needMinify ) {
         this.contents = this.htmlminify()
       }

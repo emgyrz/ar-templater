@@ -1,7 +1,7 @@
 {
-  "name": "gulp-plugin-ar-trs",
+  "name": "ar-templater",
   "version": "0.0.1",
-  "description": "Gulp plugin for compile template (for AddReality)",
+  "description": "Templates translater and compiler (for AddReality)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,7 @@
   "author": "mz",
   "repository": {
     "type": "git",
-    "url": "git@github.com:emgyrz/gulp-plugin-ar-trs.git"
+    "url": "git@github.com:emgyrz/ar-templater"
   },
   "license": "ISC",
   "dependencies": {
@@ -17,8 +17,6 @@
     "html-minifier": "^3.5.8",
     "lodash": "^4.17.4",
     "node-watch": "^0.5.5",
-    "plugin-error": "^0.1.2",
-    "through2": "^2.0.3",
     "uglify-js": "^3.3.5"
   },
   "bin": {

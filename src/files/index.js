@@ -83,7 +83,7 @@ function findByPath( filePath ) {
 
 
 function updateOne( filePath ) {
-  console.time( 'UPDATE' )
+  // console.time( 'UPDATE' )
   if ( conf.get('compareCtime') ) {
     compileAll()
   } else {
@@ -94,8 +94,7 @@ function updateOne( filePath ) {
 
   writeFiles()
 
-  console.timeEnd( 'UPDATE' )
-
+  // console.timeEnd( 'UPDATE' )
 }
 
 
