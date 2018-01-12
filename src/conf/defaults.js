@@ -15,7 +15,8 @@ const defaults = {
   output: {
     type: 'amd',
     name: langCode => langCode
-  }
+  },
+  compareCtime: false
 }
 
 

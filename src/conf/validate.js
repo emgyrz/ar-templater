@@ -25,6 +25,10 @@ const validators = {
     msg: 'option minify is not a boolean',
     func: _.isBoolean
   },
+  compareCtime: {
+    msg: 'compareCtime minify is not a boolean',
+    func: _.isBoolean
+  },
   htmlminifyOptions: {
     msg: 'htmlminifyOptions is not valid',
     func( val ) {
@@ -52,7 +56,7 @@ const validators = {
         return false
       }
 
-      const avaliableTypes = [ 'amd', 'commonjs' ]
+      const avaliableTypes = [ 'amd', 'commonjs', 'esm' ]
 
       if ( val.hasOwnProperty( 'type' ) ) {
         if ( !_.isString( val.type ) || !avaliableTypes.includes( val.type ) ) {
@@ -78,7 +82,7 @@ module.exports = function( opts ) {
   const keys = Object.keys( opts )
   requiredOpts.forEach( optKey => {
     if ( !keys.includes( optKey ) ) {
-      utils.err( { msg: `"${optKey}" must be specified in config` } )
+      utils.err( { msg: `Config error: "${optKey}" must be specified in config` } )
     }
   } )
 

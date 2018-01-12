@@ -21,7 +21,7 @@ function clearLineBreaks( fileStr ) {
 function compile( fileStr, { isPlainTpl, needMinify } ) {
 
   if ( isPlainTpl ) {
-    return '"' + clearLineBreaks( fileStr ) + '"'
+    return "'" + clearLineBreaks( fileStr ) + "'"
   }
 
   let tpl = template( fileStr ).source

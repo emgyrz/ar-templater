@@ -1,14 +1,15 @@
 module.exports = {
   langDir: './demo/lang',
   templatesSrc: './demo/tpls/**/*.html',
-  dest: '.tmp',
-  minify: true,
+  dest: './demo/dest',
+  minify: false,
   varNameModificator: filePath => {
     return filePath
       .replace( /.html$/, '' )
       .replace( /.*tpls\//, '' )
   },
   output: {
-    type: 'commonjs'
+    type: 'amd',
+    name: langCode => `tpl-${langCode}`
   },
 }

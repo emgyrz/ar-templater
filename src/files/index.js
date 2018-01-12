@@ -15,7 +15,7 @@ function prepare() {
   const tplFiles = glob.sync( src )
 
   if ( tplFiles.length === 0 ) {
-    utils.err( 'no files to watch in ' + src )
+    utils.err( { msg: 'no files to watch in ' + src } )
   }
 
   files.push( ...tplFiles.map( filePath => new TplFile( filePath ) ) )
@@ -58,6 +58,8 @@ function writeFiles() {
   const { name: nameModifier } = conf.get( 'output' )
   const dest = conf.get( 'dest' )
 
+  utils.mkdirSync( dest )
+
   translates.langCodes.forEach( langCode => {
     const name = nameModifier( langCode ) + '.js'
     fs.writeFileSync( path.join( dest, name ), concated[ langCode ] )
@@ -67,11 +69,60 @@ function writeFiles() {
 
 
 
+function getPathes() {
+  return files.map( file => file.filePath )
+}
+
+
+
+function findByPath( filePath ) {
+  return files.find( file => file.filePath.includes( filePath ) )
+}
+
+
+
+
+function updateOne( filePath ) {
+  console.time( 'UPDATE' )
+  if ( conf.get('compareCtime') ) {
+    compileAll()
+  } else {
+    const file = findByPath( filePath )
+    if ( !file ) return
+    file.compile( { force: true } )
+  }
+
+  writeFiles()
+
+  console.timeEnd( 'UPDATE' )
+
+}
+
+
+
+
+
+function removeOne( filePath ) {
+  const file = findByPath( filePath )
+  if ( !file ) return
+  const ind = files.indexOf( file )
+  if ( ind !== -1 ) {
+    files.splice( ind, 1 )
+  }
+}
+
+
+
+
 
 
 
 module.exports = {
   prepare,
   compileAll,
-  writeFiles
+  writeFiles,
+  getPathes,
+  updateOne,
+  removeOne,
 }
+

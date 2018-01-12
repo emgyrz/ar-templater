@@ -60,7 +60,7 @@ class TplFile {
     }
 
     const currentCtime = this.getCtime()
-    const isChanged = this.currentCtime > this.ctime
+    const isChanged = currentCtime > this.ctime
 
     return {
       isChanged,
@@ -93,27 +93,43 @@ class TplFile {
 
 
 
-  compile() {
+  compile( { force } = {} ) {
+
+
+
+
+
+    const defCompile = () => {
+
+      // console.log('COMPILING', this.filePath)
+      if ( this.needMinify ) {
+        this.contents = this.htmlminify()
+      }
+
+      this.translate()
+
+      this.isPlainTpl = templates.isPlainTpl( this.contents )
+
+      this.compileTpls()
+    }
+
+    if ( force === true ) {
+      this.read()
+      defCompile()
+      return
+    }
+
     const changed = this.changed()
 
     if ( !changed.isChanged ) return
 
     this.ctime = changed.currentCtime === null ? this.getCtime() : changed.currentCtime
 
-    if ( !isString( this.contents ) ) {
+    if ( changed.isChanged || !isString( this.contents ) ) {
       this.read()
     }
 
-    if ( this.needMinify ) {
-      this.contents = this.htmlminify()
-    }
-
-
-    this.translate()
-
-    this.isPlainTpl = templates.isPlainTpl( this.contents )
-
-    this.compileTpls()
+    defCompile()
 
   }
 
