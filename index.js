@@ -25,9 +25,6 @@ function build( configOrPathTo ) {
 }
 
 
-// start( './demo/config' )
-build( './nt/config' )
-
 
 module.exports = {
   start,
