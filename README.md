@@ -24,11 +24,11 @@ In the project:
 - 167 template files
 - ~5500 lines of code in this files
 
-The compilation speed after:
+The compilation speed before:
 - on init - ~37 seconds
 - incremental - ~1.2 seconds
 
-Using this package:
+The compilation speed when using this package:
 - on init - ~4 seconds
 - incremental - 0.2 seconds
 
