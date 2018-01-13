@@ -6,7 +6,7 @@ AR-templater internationalize your HTML files and compile its to tempate functio
 ### Installation
 As usual via `npm`
 ```js
-npm i ar-templater // -g -D
+npm i ar-templater // -g or -D
 ```
 
 ### Usage
@@ -28,10 +28,10 @@ npm i ar-templater // -g -D
 | htmlminifyOptions | { [ string ]: any } | html-minifier options. See more [here](https://github.com/kangax/html-minifier#options-quick-reference) | `{}` |
 | langFallback | string | If some translations of the phrases don't exist it will be used translations from this language | `'en'` |
 | customLangFallbacks | { [ string ]: string } | Custom languages fallbacks, for example if this option was setted to `{ be: 'ru' }`, words that is not finded in `be` language will be taken from `ru`  | `{}` |
-| varNameModificator | ( filePath: string ) => string |  |  |
-| output | object |  |  | 
-| output.type | string |  |  |
-| output.name | ( langCode: string ) => string |  |  | |
+| varNameModificator | ( filePath: string ) => string | Modify the property name of file content into generated result | `filePath => filePath` |
+| output | object | Option to specify output files format and name | {} | 
+| output.type | string | The format of the generated files. One of the following `[ 'amd', 'commonjs', 'esm' ]` | `'amd'` |
+| output.name | ( langCode: string ) => string | Function that modify file name to write to. By default returns just a language code. The extension (.js) is added automatically | `langCode => langCode` | |
 
 
 
