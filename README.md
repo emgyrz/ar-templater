@@ -123,7 +123,7 @@ module.exports = {
 
 
 
-##### config.js
+##### config
 ```js
 module.exports = {
   langDir: './langs',
@@ -201,6 +201,17 @@ export default {
 
 
 ```
+
+
+
+
+## Demo
+
+```
+npm run test
+```
+
+Demo locates at `./demo` directory
 
 
 
