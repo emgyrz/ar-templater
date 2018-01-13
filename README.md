@@ -17,24 +17,6 @@ As usual via `npm`
 
 
 
-## Reasons for creating
-Due to some circumstances in our project to build the templates we used `gulp` and a few plugins to it (which names remain secret). With the increase of the code base the compilation only templates become slower and slower and breaking dependencies when upgrading packages delivered more and more discontent. In the end I had to write something. The problem with the dependencies, of course, resolved. But the acceleration of the compilation speed was a pleasant surprise. Naked stats:
-
-In the project:
-- 167 template files
-- ~5500 lines of code in this files
-
-The compilation speed before:
-- on init - ~37 seconds
-- incremental - ~1.2 seconds
-
-The compilation speed when using this package:
-- on init - ~4 seconds
-- incremental - 0.2 seconds
-
-<br/>
-
-
 ## Usage
 
 If you use config file it must be a CommonJS module
@@ -95,11 +77,28 @@ For more information see `ar-templater help`
 | output.type | `string` | The format of the generated files. One of the following `[ 'amd', 'commonjs', 'esm' ]` | `'amd'` |
 | output.name | `( langCode: string ) => string` | Function that modify file name to write to. By default returns just a language code. The extension (.js) is added automatically | `langCode => langCode` | |
 
+<br/>
 
 
 
+
+## Reasons for creating
+Due to some circumstances in our project to build the templates we used `gulp` and a few plugins to it (which names remain secret). With the increase of the code base the compilation only templates become slower and slower and breaking dependencies when upgrading packages delivered more and more discontent. In the end I had to write something. The problem with the dependencies, of course, resolved. But the acceleration of the compilation speed was a pleasant surprise. Naked stats:
+
+In the project:
+- 167 template files
+- ~5500 lines of code in this files
+
+The compilation speed before:
+- on init - ~37 seconds
+- incremental - ~1.2 seconds
+
+The compilation speed when using this package:
+- on init - ~4 seconds
+- incremental - 0.2 seconds
 
 <br/>
+
 
 ## Example
 
