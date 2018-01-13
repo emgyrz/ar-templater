@@ -1,7 +1,9 @@
 # AR-templater
 
-AR-templater internationalize your HTML files and compile its to tempate functions if it's needed
 [![NPM](https://nodei.co/npm/ar-templater.png)](https://nodei.co/npm/ar-templater/)
+<br/>
+AR-templater internationalize your HTML files and compile its to tempate functions if it's needed
+
 
 <br/>
 
