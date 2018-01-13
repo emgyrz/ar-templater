@@ -88,6 +88,7 @@ Due to some circumstances in our project we used `gulp` and a few plugins to it 
 In the project:
 - 167 template files
 - ~5500 lines of code in this files
+- 17 languages
 
 The compilation speed before:
 - on init - ~37 seconds
