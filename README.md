@@ -1,7 +1,6 @@
 # AR-templater
 
-AR-templater internationalize your HTML files and compile its to tempate functions if it's need ( with `lodash.template` )
-
+AR-templater internationalize your HTML files and compile its to tempate functions if it's needed
 
 <br/>
 
