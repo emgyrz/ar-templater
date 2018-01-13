@@ -19,7 +19,7 @@ As usual via `npm`
 
 ## Usage
 
-If you use config file it must be a CommonJS module
+If you use the config file it must be a CommonJS module
 
 ### Node API
 
@@ -72,10 +72,10 @@ For more information see `ar-templater help`
 | htmlminifyOptions | `{ [ string ]: any }` | html-minifier options. See more [here](https://github.com/kangax/html-minifier#options-quick-reference) | `{}` |
 | langFallback | `string` | If some translations of the phrases don't exist it will be used translations from this language | `'en'` |
 | customLangFallbacks | `{ [ string ]: string }` | Custom languages fallbacks, for example if this option was setted to `{ be: 'ru' }`, words that is not finded in `be` language will be taken from `ru`  | `{}` |
-| varNameModificator | `( filePath: string ) => string` | Modify the property name of file content into generated result | `filePath => filePath` |
+| varNameModificator | `( filePath: string ) => string` | Modifies the property name of file content in generated result | `filePath => filePath` |
 | output | `object` | Option to specify output files format and name | `{}` | 
 | output.type | `string` | The format of the generated files. One of the following `[ 'amd', 'commonjs', 'esm' ]` | `'amd'` |
-| output.name | `( langCode: string ) => string` | Function that modify file name to write to. By default returns just a language code. The extension (.js) is added automatically | `langCode => langCode` | |
+| output.name | `( langCode: string ) => string` | Function that modifies file name to write to. By default it returns just a language code. The extension (.js) is added automatically | `langCode => langCode` | |
 
 <br/>
 
@@ -83,7 +83,7 @@ For more information see `ar-templater help`
 
 
 ## Reasons for creating
-Due to some circumstances in our project to build the templates we used `gulp` and a few plugins to it (which names remain secret). With the increase of the code base the compilation only templates become slower and slower and breaking dependencies when upgrading packages delivered more and more discontent. In the end I had to write something. The problem with the dependencies, of course, resolved. But the acceleration of the compilation speed was a pleasant surprise. Naked stats:
+Due to some circumstances in our project we used `gulp` and a few plugins to it (let their names remain a secret) to build the templates. With the increase of the code base the compilation of only the templates became slower and slower. And breaking dependencies made more and more discontent while I upgraded packages. In the end I had to write something. The problem with the dependencies, of course, was resolved. And the acceleration of the compilation speed has been a pleasant surprise. Naked stats:
 
 In the project:
 - 167 template files
@@ -93,7 +93,7 @@ The compilation speed before:
 - on init - ~37 seconds
 - incremental - ~1.2 seconds
 
-The compilation speed when using this package:
+The compilation speed during using this package:
 - on init - ~4 seconds
 - incremental - 0.2 seconds
 
@@ -228,7 +228,7 @@ export default {
 npm run test
 ```
 
-Demo locates at `./demo` directory
+Demo is located at `./demo` directory
 
 
 
