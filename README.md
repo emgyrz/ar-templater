@@ -11,12 +11,6 @@ AR-templater internationalize your HTML files and compile its to tempate functio
 
 ## Installation
 As usual via `npm`
-```js
-npm i ar-templater // -g or -D
-```
-
-
-
 
 <br/>
 
