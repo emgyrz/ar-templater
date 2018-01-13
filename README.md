@@ -1,4 +1,4 @@
-#AR-templater
+# AR-templater
 
 AR-templater internationalize your HTML files and compile its to tempate functions if it's need ( with `lodash.template` )
 
@@ -18,7 +18,7 @@ Most of the options are disabled by default.
 
 | Option         | Type | Description | Default |
 |----------------|------|---------|---------|
-| langDir | string | Specifies the path to find definitions | `undefined` |
+| langDir | string | Specifies the path to find languages definitions | `undefined` |
 | templatesSrc | string | Patter for matching file paths against Unix shell style | `undefined` |
 | dest | string | The path (output folder) to write files to.  If directory doesn't exist it will be created | `undefined` |
 | templatesInterpolate | regexp | The regular expression used for matching the varible tags. See more at [lodash docs](https://lodash.com/docs#template) | `/<%=([\s\S]+?)%>/g` |
