@@ -3,6 +3,8 @@
 AR-templater internationalize your HTML files and compile its to tempate functions if it's need ( with `lodash.template` )
 
 
+<br/>
+
 ## Installation
 As usual via `npm`
 ```js
@@ -10,6 +12,10 @@ npm i ar-templater // -g or -D
 ```
 
 ---
+
+
+<br/>
+
 
 ## Usage
 
@@ -47,6 +53,8 @@ For more information see `ar-templater help`
 ---
 
 
+<br/>
+
 
 ## Configuration options reference
 
@@ -72,6 +80,8 @@ For more information see `ar-templater help`
 
 ---
 
+
+<br/>
 
 ## Example
 
