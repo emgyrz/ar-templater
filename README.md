@@ -11,7 +11,7 @@ As usual via `npm`
 npm i ar-templater // -g or -D
 ```
 
----
+
 
 
 <br/>
@@ -50,7 +50,7 @@ ar-templater [COMMAND] [ARGS]
 ```
 For more information see `ar-templater help`
 
----
+
 
 
 <br/>
@@ -78,7 +78,7 @@ For more information see `ar-templater help`
 | output.name | `( langCode: string ) => string` | Function that modify file name to write to. By default returns just a language code. The extension (.js) is added automatically | `langCode => langCode` | |
 
 
----
+
 
 
 <br/>
