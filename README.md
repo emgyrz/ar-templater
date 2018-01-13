@@ -9,6 +9,8 @@ As usual via `npm`
 npm i ar-templater // -g or -D
 ```
 
+---
+
 ## Usage
 
 If you use config file it must be a CommonJS module
@@ -42,7 +44,7 @@ ar-templater [COMMAND] [ARGS]
 ```
 For more information see `ar-templater help`
 
-
+---
 
 
 
@@ -53,7 +55,7 @@ For more information see `ar-templater help`
 | Option         | Type | Description | Default |
 |----------------|------|---------|---------|
 | **langDir** | `string` | Specifies the path to find the language definitions | `undefined` |
-| **templatesSrc** | `string` | Pattern for matching to file paths like Unix shell style | `undefined` |
+| **templatesSrc** | `string` | Pattern for matching to file paths like Unix shell style. See [node-glob](https://github.com/isaacs/node-glob) | `undefined` |
 | **dest** | `string` | The path (output directory) to write files to.  If the directory doesn't exist it will be created | `undefined` |
 | templatesInterpolate | `regexp` | The regular expression used for matching the variables. See more at [lodash docs](https://lodash.com/docs#template) | `/<%=([\s\S]+?)%>/g` |
 | translatesInterpolate | `regexp` | The regular expression used for matching the language tags | `/\$\{\{([\s\S]+?)\}\}\$/g` |
@@ -67,6 +69,128 @@ For more information see `ar-templater help`
 | output.type | `string` | The format of the generated files. One of the following `[ 'amd', 'commonjs', 'esm' ]` | `'amd'` |
 | output.name | `( langCode: string ) => string` | Function that modify file name to write to. By default returns just a language code. The extension (.js) is added automatically | `langCode => langCode` | |
 
+
+---
+
+
+## Example
+
+##### languge definitions
+```js
+// ./langs/en/main.js
+module.exports = {
+  nameDescription: 'This is the item name',
+  hello: 'Hello!'
+}
+
+// ./langs/de/main.js
+module.exports = {
+  nameDescription: 'Dies ist der name',
+  hello: 'Hallo!'
+}
+
+// ./langs/ru/main.js
+module.exports = {
+  nameDescription: 'Это имя элемента',
+  hello: 'Привет!'
+}
+
+
+```
+
+##### input
+```xml
+<!-- ./tpls/tpl.html -->
+<li>
+  <span title="${{ main.nameDescription }}$"><%= name %></span>
+  <span><%= price %></span>
+</li>
+
+<!-- ./tpls/plain.html -->
+<h1>${{ main.hello }}$</h1>
+
+```
+
+
+
+##### config.js
+```js
+module.exports = {
+  langDir: './langs',
+  templatesSrc: './tpls/**/*.html'
+  dest: './dest',
+  minify: false,
+  output: {
+    type: 'esm',
+    name: langCode => `my-template-${langCode}`
+  }
+
+}
+
+```
+
+
+
+
+##### output
+```js
+// ./dest/my-template-en.js
+export default {
+  "tpls/tpl.html": function(obj){
+    var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+    with(obj||{}){
+    __p+='<li>   <span title=\"This is the item name\">'+
+    ((__t=( name ))==null?'':__t)+
+    '</span>   <span>'+
+    ((__t=( price ))==null?'':__t)+
+    '</span> </li>';
+    }
+    return __p;
+  },
+
+  "tpls/plain.html": '<h1>Hello!</h1>'
+}
+
+
+// ./dest/my-template-de.js
+export default {
+  "tpls/tpl.html": function(obj){
+    var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+    with(obj||{}){
+    __p+='<li>   <span title=\"Dies ist der name\">'+
+    ((__t=( name ))==null?'':__t)+
+    '</span>   <span>'+
+    ((__t=( price ))==null?'':__t)+
+    '</span> </li>';
+    }
+    return __p;
+  },
+
+  "tpls/plain.html": '<h1>Hallo!</h1>'
+}
+
+
+
+// ./dest/my-template-ru.js
+export default {
+  "tpls/tpl.html": function(obj){
+    var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+    with(obj||{}){
+    __p+='<li>   <span title=\"Это имя элемента\">'+
+    ((__t=( name ))==null?'':__t)+
+    '</span>   <span>'+
+    ((__t=( price ))==null?'':__t)+
+    '</span> </li>';
+    }
+    return __p;
+  },
+
+  "tpls/plain.html": '<h1>Привет!</h1>'
+}
+
+
+
+```
 
 
 
