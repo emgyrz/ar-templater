@@ -4,7 +4,7 @@
   "description": "Templates translater and compiler (for AddReality)",
   "main": "index.js",
   "scripts": {
-    "test": "ar-templater -c ./demo/config.js"
+    "test": "node ./bin.js build -c ./demo/config.js"
   },
   "author": "mz",
   "repository": {
