@@ -32,7 +32,7 @@ The compilation speed when using this package:
 - on init - ~4 seconds
 - incremental - 0.2 seconds
 
-
+<br/>
 
 
 ## Usage
