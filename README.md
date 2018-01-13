@@ -83,7 +83,7 @@ For more information see `ar-templater help`
 
 
 ## Reasons for creating
-Due to some circumstances in our project we used `gulp` and a few plugins to it (let their names remain a secret) to build the templates. With the increase of the code base the compilation of only the templates became slower and slower. And breaking dependencies made more and more discontent while I upgraded packages. In the end I had to write something. The problem with the dependencies, of course, was resolved. And the acceleration of the compilation speed has been a pleasant surprise. Naked stats:
+Due to some circumstances in our project we used `gulp` and a few plugins to it (let their names remain a secret) to build the templates. With the increase of the code base the compilation of only the templates became slower and slower. And breaking dependencies made more and more discontent while I upgraded packages. In the end I had to write something else. The problem with the dependencies naturally was resolved. And the acceleration of the compilation speed has been a pleasant surprise. Naked stats:
 
 In the project:
 - 167 template files
