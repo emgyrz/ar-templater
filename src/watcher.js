@@ -39,6 +39,7 @@ class PublicWatcher {
     const stop = () => {
       this._log( 'close' )
       w.close()
+      process.exit()
     }
 
 
