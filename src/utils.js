@@ -1,4 +1,5 @@
 const fs = require( 'fs' )
+const { name: NAME } = require( '../package.json' )
 
 
 function err( { msg } ) {
@@ -24,7 +25,18 @@ function mkdirSync( dir ) {
 }
 
 
+
+
+
+function getName() {
+  return NAME
+}
+
+
+
+
 module.exports = {
   err,
-  mkdirSync
+  mkdirSync,
+  getName
 }

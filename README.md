@@ -95,7 +95,7 @@ The compilation speed before:
 - incremental - ~1.2 seconds
 
 The compilation speed during using this package:
-- on init - ~4 seconds
+- on init - ~0.7sec ( ~4 sec with `minify` option)
 - incremental - 0.2 seconds
 
 <br/>

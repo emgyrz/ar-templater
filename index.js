@@ -8,7 +8,7 @@ const watcher = require( './src/watcher' )
 function start( configOrPathTo ) {
   build( configOrPathTo )
 
-  watcher.start()
+  return watcher.start()
 }
 
 
