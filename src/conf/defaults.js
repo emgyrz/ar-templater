@@ -23,7 +23,6 @@ const defaults = {
 
 
 
-
 function extend( obj ) {
 
   obj.output = !isPlainObject( obj.output ) ? defaults.output : obj.output

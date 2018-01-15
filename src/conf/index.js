@@ -1,5 +1,5 @@
 const path = require( 'path' )
-const { isPlainObject: isObj, isString: isStr} = require( 'lodash' )
+const { isPlainObject: isObj, isString: isStr } = require( 'lodash' )
 const validate = require( './validate' )
 const utils = require( '../utils' )
 const defaults = require( './defaults' )
@@ -16,7 +16,7 @@ function parse( objOrFilePath ) {
     const configPath = path.isAbsolute( objOrFilePath ) ? objOrFilePath : path.join( process.cwd(), objOrFilePath )
     try {
       config = require( configPath )
-    } catch( err ) {
+    } catch ( err ) {
       if ( err.code === 'MODULE_NOT_FOUND' ) {
         utils.err( { msg: `Couldn\'t find config in path ${configPath}` } )
       } else {
@@ -31,8 +31,6 @@ function parse( objOrFilePath ) {
     return config
   }
 }
-
-
 
 
 
@@ -54,6 +52,3 @@ module.exports = {
   read,
   get
 }
-
-
-

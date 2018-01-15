@@ -1,9 +1,8 @@
 const fs = require( 'fs' )
 const { isNumber, isString, clone } = require( 'lodash' )
-const htmlminifier = require('html-minifier')
+const htmlminifier = require( 'html-minifier' )
 const translates = require( '../translates' )
 const templates = require( '../templates' )
-
 const conf = require( '../conf' )
 
 
@@ -139,4 +138,3 @@ class TplFile {
 
 
 module.exports = TplFile
-

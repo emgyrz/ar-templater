@@ -13,7 +13,7 @@ function isPlainTpl( fileStr ) {
 
 
 function clearLineBreaks( fileStr ) {
-  return fileStr.replace( lineBreaks, '')
+  return fileStr.replace( lineBreaks, '' )
 }
 
 
@@ -34,7 +34,6 @@ function compile( fileStr, { isPlainTpl, needMinify } ) {
 
   return tpl
 }
-
 
 
 module.exports = {

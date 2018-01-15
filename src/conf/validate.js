@@ -65,7 +65,7 @@ const validators = {
         }
       }
 
-      if ( val.hasOwnProperty( 'name' )  ) {
+      if ( val.hasOwnProperty( 'name' ) ) {
         if ( !_.isFunction( val.name ) ) {
           this.msg = `output.name must be a string and return string`
           return false

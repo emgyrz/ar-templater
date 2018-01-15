@@ -2,9 +2,8 @@ const conf = require( '../conf' )
 
 
 
-
 const sides = {
-  amd: [ 'define({','})' ],
+  amd: [ 'define({', '})' ],
   commonjs: [ 'module.exports={', '}' ],
   esm: [ 'export default {', '}' ]
 }
@@ -26,4 +25,3 @@ module.exports = function( contents ) {
 
   return start + res.join( ',' ) + end
 }
-

@@ -52,7 +52,6 @@ function prepare() {
 
 
 
-
 function getFbCodeFor( langCode ) {
   const customFb = store.customFallbacks[ langCode ]
   return isStr( customFb ) ? customFb : store.fallback

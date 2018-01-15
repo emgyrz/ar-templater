@@ -1,6 +1,5 @@
-
 const files = require( './src/files' )
-const translates = require( './src/translates')
+const translates = require( './src/translates' )
 const config = require( './src/conf' )
 const watcher = require( './src/watcher' )
 

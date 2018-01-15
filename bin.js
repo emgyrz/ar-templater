@@ -55,7 +55,7 @@ function findCfg() {
   } else {
     const minIndex = argv.findIndex( arg => minRegexp.test( arg ) )
     if ( minIndex !== -1 ) {
-      pathToConfig = argv[ minIndex + 1]
+      pathToConfig = argv[ minIndex + 1 ]
     }
   }
 
@@ -87,6 +87,3 @@ function showHelp() {
   log( '  -c, --config=PATH   -  path to configuration file' )
   log( '\nSee more at https://github.com/emgyrz/ar-templater' )
 }
-
-
-

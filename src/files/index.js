@@ -2,10 +2,11 @@ const fs = require( 'fs' )
 const path = require( 'path' )
 const glob = require( 'glob' )
 const conf = require( '../conf' )
-const utils = require( '../utils')
+const utils = require( '../utils' )
 const TplFile = require( './file' )
 const templates = require( '../templates' )
 const translates = require( '../translates' )
+
 
 const files = []
 
@@ -84,7 +85,7 @@ function findByPath( filePath ) {
 
 function updateOne( filePath ) {
   // console.time( 'UPDATE' )
-  if ( conf.get('compareCtime') ) {
+  if ( conf.get( 'compareCtime' ) ) {
     compileAll()
   } else {
     const file = findByPath( filePath )
@@ -115,7 +116,6 @@ function removeOne( filePath ) {
 
 
 
-
 module.exports = {
   prepare,
   compileAll,
@@ -124,4 +124,3 @@ module.exports = {
   updateOne,
   removeOne,
 }
-

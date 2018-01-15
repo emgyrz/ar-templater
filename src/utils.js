@@ -1,10 +1,9 @@
 const fs = require( 'fs' )
 
+
 function err( { msg } ) {
   throw new Error( msg )
 }
-
-
 
 
 

@@ -17,15 +17,12 @@ function start() {
   } )
 
 
-  watcher.on('error', err => {
+  watcher.on( 'error', err => {
     console.log( "err", err )
     watcher.close()
   } )
 
 }
-
-
-
 
 
 

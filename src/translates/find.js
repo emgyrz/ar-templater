@@ -40,4 +40,3 @@ module.exports = function() {
   return { translates, langCodes }
 
 }
-
