@@ -27,11 +27,11 @@ If you use the config file it must be a CommonJS module
 const templater = require( 'ar-templater' )
 
 const arg = './path/to/config/file'
-// or 
+// or
 const arg = { langDir: './langs', ... } // configuration object
 
 
-templater.build( arg ) // to compile all templates
+templater.build( arg[, callback ] ) // to compile all templates
 // or
 templater.start( arg ) // to start watcher for incrementals build. at start it will execute `build` function
 
@@ -73,7 +73,7 @@ For more information see `ar-templater help`
 | langFallback | `string` | If some translations of the phrases don't exist it will be used translations from this language | `'en'` |
 | customLangFallbacks | `{ [ string ]: string }` | Custom languages fallbacks, for example if this option was setted to `{ be: 'ru' }`, words that is not finded in `be` language will be taken from `ru`  | `{}` |
 | varNameModificator | `( filePath: string ) => string` | Modifies the property name of file content in generated result | `filePath => filePath` |
-| output | `object` | Option to specify output files format and name | `{}` | 
+| output | `object` | Option to specify output files format and name | `{}` |
 | output.type | `string` | The format of the generated files. One of the following `[ 'amd', 'commonjs', 'esm' ]` | `'amd'` |
 | output.name | `( langCode: string ) => string` | Function that modifies file name to write to. By default it returns just a language code. The extension (.js) is added automatically | `langCode => langCode` | |
 

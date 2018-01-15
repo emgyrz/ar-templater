@@ -15,12 +15,17 @@ function start( configOrPathTo ) {
 
 
 
-function build( configOrPathTo ) {
+function build( configOrPathTo, cb ) {
   config.read( configOrPathTo )
   files.prepare()
   translates.prepare()
   files.compileAll()
   files.writeFiles()
+
+  if ( typeof cb === 'function' ) {
+    cb()
+  }
+
 }
 
 
