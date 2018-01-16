@@ -16,7 +16,11 @@ const defaults = {
     type: 'amd',
     name: langCode => langCode
   },
-  compareCtime: false
+  compareCtime: false,
+  langsFilter: {
+    excludes: [],
+    includes: []
+  }
 }
 
 

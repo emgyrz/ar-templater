@@ -75,7 +75,11 @@ For more information see `ar-templater help`
 | varNameModificator | `( filePath: string ) => string` | Modifies the property name of file content in generated result | `filePath => filePath` |
 | output | `object` | Option to specify output files format and name | `{}` |
 | output.type | `string` | The format of the generated files. One of the following `[ 'amd', 'commonjs', 'esm' ]` | `'amd'` |
-| output.name | `( langCode: string ) => string` | Function that modifies file name to write to. By default it returns just a language code. The extension (.js) is added automatically | `langCode => langCode` | |
+| output.name | `( langCode: string ) => string` | Function that modifies file name to write to. By default it returns just a language code. The extension (.js) is added automatically | `langCode => langCode` |
+| langsFilter | `object` | Filters languages to compile. Helpful for development| `{}` |
+| langsFilter.excludes | `Array<string>` | Excludes languages. this parameter has a higher priority than `includes` | `[]` |
+| langsFilter.includes | `Array<string>` | Includes languages | `[]` |  |
+
 
 <br/>
 

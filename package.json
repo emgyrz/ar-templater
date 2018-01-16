@@ -1,6 +1,6 @@
 {
   "name": "ar-templater",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Templates translater and compiler (for AddReality)",
   "main": "index.js",
   "scripts": {

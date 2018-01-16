@@ -11,5 +11,5 @@ module.exports = {
   output: {
     type: 'amd',
     name: langCode => `tpl-${langCode}`
-  },
+  }
 }

@@ -74,6 +74,25 @@ const validators = {
 
       return true
     }
+  },
+  langsFilter: {
+    msg: '',
+    func( val ) {
+      if ( _.isNil( val ) ) return true
+
+      const isArr = arr => val.hasOwnProperty( arr ) && !_.isArray( arr )
+      const keys = [ 'excludes', 'includes' ]
+
+      for ( let j = 0; j < keys.length; j++ ) {
+        const key = keys[ j ]
+        if ( isArr( val[ key ] ) ) {
+          this.msg = `langsFilter.${key} must be an array of language codes`
+          return false
+        }
+      }
+
+      return true
+    }
   }
 }
 

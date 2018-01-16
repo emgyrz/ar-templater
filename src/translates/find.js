@@ -1,10 +1,34 @@
 const path = require( 'path' )
 const glob = require( 'glob' )
+const { isArray } = require( 'lodash' )
 const conf = require( '../conf' )
 const utils = require( '../utils' )
 
-
 const fileExtRegexp = /\.js(on)?$/
+
+
+
+function filterLangs( dirsPaths ) {
+
+  const { includes, excludes } = conf.get( 'langsFilter' )
+  const has = arr => isArray( arr ) && arr.length !== 0
+  const hasIncl = has( includes )
+  const hasExcl = has( excludes )
+
+  return dirsPaths.filter( langDirPath => {
+      let needToCompile = true
+      const langCode = path.basename( langDirPath )
+      if ( hasIncl ) {
+        needToCompile = includes.includes( langCode )
+      }
+      if ( hasExcl ) {
+        needToCompile = !excludes.includes( langCode )
+      }
+      return needToCompile
+    } )
+}
+
+
 
 module.exports = function() {
 
@@ -15,11 +39,14 @@ module.exports = function() {
 
   const langDirPath = path.normalize( path.format( { dir: langDir } ) )
 
-  const dirs = glob.sync( langDirPath + '*/' )
 
-  if ( dirs.length === 0 ) {
+  const allDirs = glob.sync( langDirPath + '*/' )
+
+  if ( allDirs.length === 0 ) {
     utils.err( { msg: 'cannot find translates in ' + langDir } )
   }
+
+  const dirs = filterLangs( allDirs )
 
   dirs.forEach( oneLangDirPath => {
     const langCode = path.basename( oneLangDirPath )
