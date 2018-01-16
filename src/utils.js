@@ -18,8 +18,8 @@ function mkdirSync( dir ) {
     fs.mkdirSync( dir )
   } catch ( err ) {
     if ( err.code == 'ENOENT' ) {
-      myMkdirSync( path.dirname( dir ) )
-      myMkdirSync( dir )
+      mkdirSync( path.dirname( dir ) )
+      mkdirSync( dir )
     }
   }
 }
