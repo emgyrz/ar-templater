@@ -1,4 +1,5 @@
 const fs = require( 'fs' )
+const path = require( 'path' )
 const { name: NAME } = require( '../package.json' )
 
 
@@ -20,6 +21,8 @@ function mkdirSync( dir ) {
     if ( err.code == 'ENOENT' ) {
       mkdirSync( path.dirname( dir ) )
       mkdirSync( dir )
+    } else {
+      throw err
     }
   }
 }
