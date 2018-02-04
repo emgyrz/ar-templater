@@ -1,10 +1,12 @@
 {
   "name": "ar-templater",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Templates translater and compiler (for AddReality)",
   "main": "index.js",
   "scripts": {
-    "test": "node ./bin.js build -c ./demo/config.js"
+    "test": "node ./bin.js build -c ./demo/config.js",
+    "test:watcher": "node ./demo/watcherTest"
+
   },
   "author": "mz",
   "repository": {

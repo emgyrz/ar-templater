@@ -193,7 +193,7 @@ module.exports = {
 
 
 
-##### output
+##### output(without minification)
 ```js
 // ./dest/my-template-en.js
 export default {
@@ -260,6 +260,7 @@ export default {
 
 ```
 npm run test
+npm run test:watcher
 ```
 
 Demo is located at `./demo` directory
