@@ -32,13 +32,38 @@ const arg = { langDir: './langs', ... } // configuration object
 
 
 templater.build( arg[, callback ] ) // to compile all templates
-// or
-templater.start( arg ) // to start watcher for incrementals build. at start it will execute `build` function
-
-
-
 
 ```
+or
+```js
+const templater = require( 'ar-templater' )
+
+const arg = './path/to/config/file'
+// or
+const arg = { langDir: './langs', ... } // configuration object
+
+const watcher = templater.createWatcher( arg ) // to create watcher for incrementals build. at start it will execute `build` function
+watcher.on( 'start', function() {
+  console.log( 'start event triggered' )
+} )
+
+watcher.on( 'stop', function() {
+  console.log( 'stop  event triggered' )
+} )
+
+watcher.on( 'file:change', function( { filePath } ) {
+  console.log( 'file changed - ', filePath )
+} )
+
+watcher.on( 'file:remove', function( { filePath } ) {
+  console.log( 'file removed - ', filePath )
+} )
+
+watcher.start()
+
+```
+
+
 
 ### CLI
 ```bash

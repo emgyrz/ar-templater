@@ -1,14 +1,12 @@
 const files = require( './src/files' )
 const translates = require( './src/translates' )
 const config = require( './src/conf' )
-const watcher = require( './src/watcher' )
 
 
-
-function start( configOrPathTo ) {
+function createWatcher( configOrPathTo ) {
   build( configOrPathTo )
 
-  return watcher.start()
+  return require( './src/watcher' ).createWatcher()
 }
 
 
@@ -31,6 +29,6 @@ function build( configOrPathTo, cb ) {
 
 
 module.exports = {
-  start,
+  createWatcher,
   build
 }
