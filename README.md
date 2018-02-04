@@ -20,6 +20,8 @@ As usual via `npm`
 ## Usage
 
 If you use the config file it must be a CommonJS module
+<br/>
+
 
 ### Node API
 
@@ -30,8 +32,8 @@ const arg = './path/to/config/file'
 // or
 const arg = { langDir: './langs', ... } // configuration object
 
-
-templater.build( arg[, callback ] ) // to compile all templates
+// to compile all templates
+templater.build( arg[, callback ] )
 
 ```
 or
@@ -42,7 +44,9 @@ const arg = './path/to/config/file'
 // or
 const arg = { langDir: './langs', ... } // configuration object
 
-const watcher = templater.createWatcher( arg ) // to create watcher for incrementals build. at start it will execute `build` function
+// to create watcher for incrementals build. at start it will execute `build` function
+const watcher = templater.createWatcher( arg )
+
 watcher.on( 'start', function() {
   console.log( 'start event triggered' )
 } )
@@ -60,9 +64,12 @@ watcher.on( 'file:remove', function( { filePath } ) {
 } )
 
 watcher.start()
+// watcher also has a `stop` method
+// watcher.stop()
+
 
 ```
-
+<br/>
 
 
 ### CLI
@@ -74,9 +81,6 @@ watcher.start()
 ar-templater [COMMAND] [ARGS]
 ```
 For more information see `ar-templater help`
-
-
-
 
 <br/>
 
