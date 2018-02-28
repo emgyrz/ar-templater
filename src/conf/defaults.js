@@ -2,7 +2,7 @@ const { defaults: extendDefaults, isPlainObject } = require( 'lodash' )
 
 
 const defaults = {
-  templatesInterpolate: /<%=([\s\S]+?)%>/g,
+  templatesInterpolate: /<%=?([\s\S\r\n]+?)%>/g,
   translatesInterpolate: /\$\{\{([\s\S]+?)\}\}\$/g,
   minify: false,
   htmlminifyOptions: {
