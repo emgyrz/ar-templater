@@ -30,6 +30,23 @@ function filterLangs( dirsPaths ) {
 
 
 
+
+
+function escapeQuotes( obj ) {
+  const quotes = /\'/g
+
+  Object.keys( obj ).forEach( key => {
+    const val = obj[ key ]
+    obj[ key ] = typeof val === 'string' ? val.replace( quotes, '&quot;' ) : escapeQuotes( val )
+  } )
+
+  return obj
+}
+
+
+
+
+
 module.exports = function() {
 
   const translates = {}
@@ -58,7 +75,7 @@ module.exports = function() {
       .filter( fPath => fileExtRegexp.test( fPath ) )
       .forEach( fPath => {
         const fileName = path.basename( fPath ).replace( fileExtRegexp, '' )
-        translates[ langCode ][ fileName ] = require( path.join( process.cwd(), fPath ) )
+        translates[ langCode ][ fileName ] = escapeQuotes( require( path.join( process.cwd(), fPath ) ) )
       } )
 
   } )
